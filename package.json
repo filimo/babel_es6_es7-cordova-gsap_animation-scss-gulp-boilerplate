@@ -1,7 +1,7 @@
 {
-  "name": "VoicePozzy",
+  "name": "babel_es6_es7-cordova-gsap_animation-scss-gulp-boilerplate",
   "version": "1.0.0",
-  "description": "VoicePozzy",
+  "description": "babel_es6_es7-cordova-gsap_animation-scss-gulp-boilerplate",
   "main": "gulpfile.js",
   "scripts": {
     "test": "watch"
