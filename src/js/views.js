@@ -1,7 +1,6 @@
 import $ from 'jquery'
 import _ from 'underscore'
-require('gsap')
-
+import TweenLite from 'gsap'
 
 import tmpl from '../html/views.html'
 
@@ -19,13 +18,11 @@ class Views extends View {
     }
 
     showMenu() {
-        TweenLite.to(spash.el, .3, {x: '30%'})
-        return false
+        TweenLite.to(splash.el, .3, {x: '30%'})
     }
 
     hideMenu() {
-        TweenLite.to(spash.el, .3, {x: '0%'})
-        return false
+        TweenLite.to(splash.el, .3, {x: '0%'})
     }
 }
 

@@ -9,10 +9,10 @@ export default class View {
     }
 
     setEvents(events) {
-        _.each(events, function(fn, key) {
+        _.each(events, (fn, key) => {
             var rule = key.match(/^(\S+)\s*(.*)$/)
             this.$el.on(rule[1], rule[2], this[fn].bind(this))
-        }.bind(this))
+        })
     }
 
     setTemplate(tmpl) {
@@ -20,7 +20,7 @@ export default class View {
         this.el = this.$el[0]
     }
 
-    views() {
+    get views() {
         return views
     }
 }

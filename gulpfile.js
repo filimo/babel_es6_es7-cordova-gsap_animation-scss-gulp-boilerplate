@@ -21,6 +21,9 @@ var gutil = require('gulp-util')
 
 var when = require('gulp-if')
 
+var cordova_lib = require('cordova-lib')
+var cdv = cordova_lib.cordova.raw
+
 module.exports = {
     plumber: function() {
         return plumber(function(error) {
