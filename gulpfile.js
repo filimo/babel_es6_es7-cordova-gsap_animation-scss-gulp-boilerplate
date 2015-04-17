@@ -39,17 +39,20 @@ var onError = function(error) {
 }
 
 gulp.task('build', function() {
+    var babel = babelify.configure({
+        optional: ["es7.asyncFunctions", "es7.classProperties", "runtime"]
+    })
+    var string = stringify({
+        extensions: ['.html'], minify: true
+    })
+
     browserify({
             entries: './src/js/index.js',
             debug: true
             //debug: process.env.NODE_ENV === 'development'
         })
-        .transform(babelify.configure({
-            optional: ["es7.asyncFunctions", "es7.classProperties", "runtime"]
-        }))
-        .transform(stringify({
-            extensions: ['.html'], minify: true
-        }))
+        .transform(babel)
+        .transform(string)
         .bundle()
         .on('error', onError)
         .pipe(plumber())
