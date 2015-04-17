@@ -1,12 +1,12 @@
 import $ from 'jquery'
 import _ from 'underscore'
 
-import View from './../View'
+import View from './subs/view'
 import tmpl from '../../html/splash.html'
 
 let events = {
     'click .test': '_showMenu',
-    'click .async': '_async',
+    'click .async': '_async_test',
     'click': '_hideMenu'
 }
 
@@ -25,7 +25,7 @@ class Splash extends View {
         })
     }
 
-    async _async() {
+    async _async_test() {
         let val2 = await $.getJSON('http://freegeoip.net/json/google.com')
         console.log(val2)
         let val1 = await this._promise()
