@@ -4,7 +4,7 @@ import TweenMax from 'gsap'
 
 import tmpl from '../html/views.html'
 
-import View from './View'
+import View from './views/subs/view'
 
 import splash from './views/splash'
 

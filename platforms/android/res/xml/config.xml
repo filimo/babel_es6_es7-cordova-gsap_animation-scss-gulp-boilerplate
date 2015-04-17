@@ -25,7 +25,7 @@
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Apache Cordova Team
     </author>
-    <content src="http://192.168.100.5:3333/voicepozzy_app/platforms/android/assets/www/index.html" />
+    <content src="index.html" />
     <access origin="*" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="StatusBarOverlaysWebView" value="true" />

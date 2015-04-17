@@ -1,6 +1,6 @@
 import $ from 'jquery'
 import _ from 'underscore'
-import views from './views'
+import views from './../../views'
 
 export default class View {
     constructor(tmpl, events) {

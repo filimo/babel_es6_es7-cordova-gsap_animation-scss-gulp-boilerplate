@@ -24,6 +24,9 @@ var when = require('gulp-if')
 var cordova_lib = require('cordova-lib')
 var cdv = cordova_lib.cordova.raw
 
+var tap = require('gulp-tap')
+var filter = require('gulp-filter')
+
 module.exports = {
     plumber: function() {
         return plumber(function(error) {
@@ -36,6 +39,13 @@ module.exports = {
 var onError = function(error) {
     console.log(error.stack)
     this.emit('end')
+}
+
+var prepare = function () {
+    console.log('cordova prepare')
+    return cdv.prepare().then(function() {
+        reload()
+    })
 }
 
 gulp.task('build', function() {
@@ -59,7 +69,9 @@ gulp.task('build', function() {
         .pipe(source('app.js'))
         .pipe(gulp.dest('./www'))
         .pipe(reload({stream: true}))
+        .pipe(tap(prepare))
         .pipe(notify('Js is updated!'))
+
 })
 
 gulp.task('sass', function () {
@@ -69,7 +81,10 @@ gulp.task('sass', function () {
         .pipe(sass())
         .pipe(sourcemaps.write('./maps'))
         .pipe(gulp.dest('./www/css'))
-        //.pipe(reload({stream: true}))
+        .pipe(gulp.dest('./platforms/android/assets/www/css'))
+        .pipe(gulp.dest('./platforms/ios/www/css'))
+        .pipe(filter('**/*.css'))
+        .pipe(reload({stream: true}))
         .pipe(notify('Sass is updated!'))
 })
 
